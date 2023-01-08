@@ -39,8 +39,8 @@ def month_name(month: int):
     month_as_datetime = datetime.datetime(1000, month, 1)
     return month_as_datetime.strftime("%B").upper()
 
-font = ImageFont.truetype("coolvetica rg.otf", FONT_SIZE)
-half_font = ImageFont.truetype("Sansation_Italic.ttf", int(FONT_SIZE/2))
+font = ImageFont.truetype("font/coolvetica rg.otf", FONT_SIZE)
+half_font = ImageFont.truetype("font/Sansation_Italic.ttf", int(FONT_SIZE/2))
 calendarStyle = CalendarStyle(font, half_font, STROKE_WIDTH, FONT_SIZE, FONT_SIZE * 1.2, int(FONT_SIZE/2) * 1.5)
 
 with Image.new("RGB", (IMG_WIDTH, IMG_HEIGHT)) as im:
