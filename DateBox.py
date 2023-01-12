@@ -32,10 +32,10 @@ def draw_border(rects, draw: ImageDraw, calendarStyle: CalendarStyle):
 def draw_shading(rects, draw: ImageDraw, day_grid_position: tuple, calendarStyle: CalendarStyle, datetime: datetime = None):
     # highlight 6day weekends
     if day_grid_position[0] == 0 or day_grid_position[0] >= 5:
-        draw.rectangle(rects, fill=(200,200,200))
+        draw.rectangle(rects, fill=(220,220,220))
     # highlight 7day mondays
     if(datetime != None and datetime.weekday() == 0):
-        draw.rectangle([(rects[0][0], rects[1][1] - calendarStyle.font_size/1.4), (rects[1])], fill=(50,200,50))
+        draw.rectangle([(rects[0][0], rects[1][1] - calendarStyle.font_size/1.4), (rects[1])], fill=(150,255,150))
 
 def draw_labels(rects, draw:ImageDraw, day: int, datetime: datetime, calendarStyle: CalendarStyle):
     # day of 6day month

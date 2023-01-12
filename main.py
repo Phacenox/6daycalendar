@@ -7,10 +7,10 @@ from CalendarStyle import CalendarStyle
 
 # defaults
 YEAR = 2023
-IMG_WIDTH = 1920
+IMG_WIDTH = 1520
 IMG_HEIGHT = 1080
 STROKE_WIDTH = 5
-FONT_SIZE = 60
+FONT_SIZE = 50
 
 if __name__ == "__main__":
     for i, arg in enumerate(sys.argv):
