@@ -45,9 +45,12 @@ def date_index_generator(days, max_columns, num_rows):
 # for months with 31 days, the 7th column is used on the last row.
 def draw_dates(draw: ImageDraw, rects, start_date: datetime, days_in_month: int, calendarStyle: CalendarStyle):
     rects = pad_rects(rects, calendarStyle.stroke_width/2)
-    box_width = (rects[1][0] - rects[0][0]) / 7
+    box_width = (rects[1][0] - rects[0][0]) / 6
     box_height = (rects[1][1] - rects[0][1]) / 5
     for (col, row), day in date_index_generator(days_in_month, 6, 5):
+        if(day+1 == 31):
+            DateBox.draw_double_capstone_datebox(box_rect, draw, (col - 1, row), day+1, start_date + datetime.timedelta(days=day), calendarStyle)
+            return
         box_rect = [(rects[0][0] + box_width * col, rects[0][1] + box_height * row), (rects[0][0] + box_width * (col+1), rects[0][1] + box_height * (row+1))]
         DateBox.draw_datebox(box_rect, draw, (col, row), day+1, start_date + datetime.timedelta(days=day), calendarStyle)
 
