@@ -19,13 +19,13 @@ def draw_title(draw: ImageDraw, rects, month: str, calendarStyle: CalendarStyle)
 
 # draws the days of the 6day week in the given rect.
 # newday is the extra day at the end of 31 day months.
-WEEKDAY_NAMES = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "NEW"]
+WEEKDAY_NAMES = ["SUN", "MON", "TUE", "WED", "THU", "FRI"]
 def draw_weekdays(draw: ImageDraw, rects, calendarStyle: CalendarStyle):
     rects = pad_rects(rects, calendarStyle.stroke_width/2)
     DateBox.draw_border(rects, draw, calendarStyle)
     DateBox.draw_shading(rects, draw, (1,0), calendarStyle) #white shading
-    box_width = (rects[1][0] - rects[0][0]) / 7
-    for col in range(0, 7):
+    box_width = (rects[1][0] - rects[0][0]) / 6
+    for col in range(0, 6):
         weekday_rect = [(rects[0][0] + box_width * col, rects[0][1]), (rects[0][0] + box_width * (col+1), rects[1][1])]
         draw.text(DateBox.base(weekday_rect, calendarStyle), WEEKDAY_NAMES[col], fill=(0,0,0), anchor="ms", font= calendarStyle.small_font)
 
